@@ -7,7 +7,6 @@ try:
 except ImportError:
     from distutils.core import setup
 
-
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
@@ -23,18 +22,21 @@ test_requirements = [
 ]
 
 setup(
-    name='ufs_tools',
-    version='0.1.0',
+    name='ufs-tools',
+    version='0.3.0',
     description="Some functions can be used during python development",
     long_description=readme + '\n\n' + history,
     author="Wang Richard",
     author_email='richardwangwang@gmail.com',
-    url='https://github.com/weijia/ufs_tools',
+    url='https://github.com/weijia/ufs-tools',
     packages=[
         'ufs_tools',
+        'ufs_tools.short_decorator'
     ],
-    package_dir={'ufs_tools':
-                 'ufs_tools'},
+    package_dir={'ufs_tools': 'ufs_tools',
+                 'ufs_tools.short_decorator':
+                     'ufs_tools/short_decorator'
+                 },
     include_package_data=True,
     install_requires=requirements,
     license="ISCL",
