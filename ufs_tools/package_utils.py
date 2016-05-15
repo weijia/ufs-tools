@@ -18,3 +18,34 @@ def include_all_ext_packages(folder_name, lib_checker=is_package_root):
 
 def include_all_ex(folder_name):
     include_all_ext_packages(folder_name)
+
+
+# Ref: http://stackoverflow.com/questions/1668223/how-to-de-import-a-python-module
+def delete_module(modname, paranoid=None):
+    from sys import modules
+    try:
+        this_module = modules[modname]
+    except KeyError:
+        raise ValueError(modname)
+    these_symbols = dir(this_module)
+    if paranoid:
+        try:
+            paranoid[:]  # sequence support
+        except:
+            raise ValueError('must supply a finite list for paranoid')
+        else:
+            these_symbols = paranoid[:]
+    del modules[modname]
+    for mod in modules.values():
+        try:
+            delattr(mod, modname)
+        except AttributeError:
+            pass
+        if paranoid:
+            for symbol in these_symbols:
+                if symbol[:2] == '__':  # ignore special symbols
+                    continue
+                try:
+                    delattr(mod, symbol)
+                except AttributeError:
+                    pass
