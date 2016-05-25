@@ -216,3 +216,10 @@ if __name__ == '__main__':
 def class_name_to_low_case(name):
     s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
     return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
+
+
+def is_none_or_empty(input_str):
+    if input_str is None or input_str == '':
+        return True
+
+    return False
