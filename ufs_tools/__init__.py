@@ -3,7 +3,7 @@
 
 __author__ = 'Wang Richard'
 __email__ = 'richardwangwang@gmail.com'
-__version__ = '0.2.0'
+__version__ = '0.4.1'
 
 from ufs_tools import *
 from filetools import *
