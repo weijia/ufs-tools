@@ -1,3 +1,4 @@
+import inspect
 import os
 
 import sys
@@ -32,8 +33,23 @@ def find_app_in_folders(folder_list, app_name_ext):
 
 
 def get_executable():
-    return sys.argv[0]
+    """
+    Get the executable position, if the application is called without path, then this function will fail.
+    :return:
+    """
+    # print sys.argv
+    # stack = inspect.stack()
+    # s = stack[-1][1]
+    # for i in stack:
+    #     print i
+    s = os.path.abspath(sys.argv[0])
+    print s
+    return s
 
 
 def get_executable_folder():
     return os.path.dirname(get_executable())
+
+
+if __name__ == '__main__':
+    print get_executable_folder()
