@@ -48,7 +48,11 @@ def get_executable():
 
 
 def get_executable_folder():
-    return os.path.dirname(get_executable())
+    executable_folder = os.path.dirname(get_executable())
+    if executable_folder == "":
+        print "!!!!!!!!!", executable_folder
+        executable_folder = os.getcwd()
+    return executable_folder
 
 
 if __name__ == '__main__':
