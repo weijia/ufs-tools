@@ -4,10 +4,14 @@ import sys
 import os
 import inspect
 import logging
+
+from ufs_tools.app_tools import get_executable_folder
+
 from filetools import get_sibling_folder
 from inspect_utils import get_parent_frame_file
 from folder_tool import find_root_path, get_file_folder
 from basic_lib_tool import include, append, include_in_folder
+
 
 log = logging.getLogger(__name__)
 
@@ -117,3 +121,7 @@ def add_path_to_python_path_env(full_path):
             return
     original_paths.append(full_path)
     os.environ["PYTHONPATH"] = separator.join(original_paths)
+
+
+def include_all_direct_sub_folders_in_sibling_ex(sub_folder_name):
+    include_all_direct_subfolders(os.path.join(get_executable_folder(), sub_folder_name))

@@ -3,7 +3,8 @@ import time
 import random
 import re
 import logging
-# The following codes are copied from http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python
+# The following codes are copied from
+# http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python
 import imp
 import sys
 from folder_tool import find_root, find_root_path
@@ -11,8 +12,8 @@ from folder_tool import find_root, find_root_path
 
 def main_is_frozen():
     return (hasattr(sys, "frozen") or  # new py2exe
-            hasattr(sys, "importers")  # old py2exe
-            or imp.is_frozen("__main__"))  # tools/freeze
+            hasattr(sys, "importers") or  # old py2exe
+            imp.is_frozen("__main__"))  # tools/freeze
 
 
 def get_main_exec():
@@ -23,8 +24,8 @@ def get_main_exec():
 
 
 def get_main_exec_path():
-    dirpath = os.path.abspath(os.path.dirname(get_main_exec()))
-    return dirpath
+    dir_path = os.path.abspath(os.path.dirname(get_main_exec()))
+    return dir_path
 
 
 def get_main_file():
