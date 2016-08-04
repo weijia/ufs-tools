@@ -13,7 +13,7 @@ def get_executable():
     # for i in stack:
     #     print i
     s = os.path.abspath(sys.argv[0])
-    print s
+    # print s
     return s
 
 
