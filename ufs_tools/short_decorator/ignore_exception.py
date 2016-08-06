@@ -13,12 +13,16 @@ def ignore_exc(func):
     return ignore_exc_with_result()(func)
 
 
-def ignore_exc_with_result(exception_result=None, exception=Exception, is_notification_needed=False):
+def ignore_exc_with_result(exception_result=None,
+                           exception=Exception,
+                           is_notification_needed=False,
+                           callback=None):
     """
     Usage:
     @ignore_exc_with_result()(func)
     def test(a):
         pass
+    :param callback:
     :param is_notification_needed:
     :param exception_result:
     :param exception:
@@ -37,6 +41,8 @@ def ignore_exc_with_result(exception_result=None, exception=Exception, is_notifi
                     print "ignored the following exception:______________________________________________"
                     traceback.print_exc()
                     return exception_result
+                if callback:
+                    callback(e)
 
         return wrap_with_exc
 
