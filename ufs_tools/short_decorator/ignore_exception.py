@@ -2,16 +2,35 @@ import traceback
 
 
 def ignore_exc(func):
-    return ignore_exc_with_result(func)
+    """
+    Usage:
+    @ignore_exc
+    def test(a):
+        pass
+    :param func: the function we want to ignore exception
+    :return:
+    """
+    return ignore_exc_with_result()(func)
 
 
 def ignore_exc_with_result(exception_result=None, exception=Exception):
+    """
+    Usage:
+    @ignore_exc_with_result()(func)
+    def test(a):
+        pass
+    :param exception_result:
+    :param exception:
+    :return:
+    """
     # Ref: http://wklken.me/posts/2012/10/27/python-base-decorator.html
     def exc_wrapper(func):
-        def wrap_with_exc():
+        # print "executing--------------"
+        def wrap_with_exc(*args):
             # noinspection PyBroadException
             try:
-                return func()
+                # print "executing!!!!!!!!!!!!!!!!"
+                return func(*args)
             except exception, e:
                 print "ignored the following exception:________________________________________________"
                 traceback.print_exc()
