@@ -23,7 +23,7 @@ test_requirements = [
 
 setup(
     name='ufs-tools',
-    version='0.5.6',
+    version='0.5.9',
     description="Some functions can be used during python development",
     long_description=readme + '\n\n' + history,
     author="Wang Richard",
@@ -31,11 +31,14 @@ setup(
     url='https://github.com/weijia/ufs-tools',
     packages=[
         'ufs_tools',
-        'ufs_tools.short_decorator'
+        'ufs_tools.short_decorator',
+        'ufs_tools.python_app_utils',
     ],
     package_dir={'ufs_tools': 'ufs_tools',
                  'ufs_tools.short_decorator':
-                     'ufs_tools/short_decorator'
+                     'ufs_tools/short_decorator',
+                 'ufs_tools.python_app_utils':
+                     'ufs_tools/python_app_utils',
                  },
     include_package_data=True,
     install_requires=requirements,
