@@ -9,7 +9,7 @@ import imp
 import sys
 
 from folder_tool import find_root, find_root_path
-from file_search import find_file_in_folder, find_filename_with_pattern_in_folder
+from file_search import find_filename_in_folder, find_filename_with_pattern_in_folder
 
 
 def main_is_frozen():
@@ -80,7 +80,7 @@ def get_free_timestamp_filename_in_path(path, dot_ext, prefix=''):
 
 def find_file_in_product(filename):
     p = os.getcwd()
-    return find_file_in_folder(filename, p)
+    return find_filename_in_folder(p, filename)
 
 
 def find_filename_in_app_framework_with_pattern(pattern):

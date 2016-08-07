@@ -3,7 +3,7 @@ import re
 from app_tools import get_executable_folder
 
 
-def find_file_in_folder(root_path, filename):
+def find_filename_in_folder(root_path, filename):
     for dirpath, dirnames, filenames in os.walk(root_path):
         if filename in filenames:
             # print 'find file:', os.path.join(dirpath, filename)
