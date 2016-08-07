@@ -23,7 +23,7 @@ test_requirements = [
 
 setup(
     name='ufs-tools',
-    version='0.5.10',
+    version='0.5.13',
     description="Some functions can be used during python development",
     long_description=readme + '\n\n' + history,
     author="Wang Richard",

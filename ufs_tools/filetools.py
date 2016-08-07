@@ -7,7 +7,9 @@ import logging
 # http://stackoverflow.com/questions/606561/how-to-get-filename-of-the-main-module-in-python
 import imp
 import sys
+
 from folder_tool import find_root, find_root_path
+from file_search import find_file_in_folder, find_filename_with_pattern_in_folder
 
 
 def main_is_frozen():
@@ -78,26 +80,12 @@ def get_free_timestamp_filename_in_path(path, dot_ext, prefix=''):
 
 def find_file_in_product(filename):
     p = os.getcwd()
-    for dirpath, dirnames, filenames in os.walk(p):
-        if filename in filenames:
-            # print 'find file:', os.path.join(dirpath, filename)
-            return os.path.join(dirpath, filename)
-    return None
+    return find_file_in_folder(filename, p)
 
 
 def find_filename_in_app_framework_with_pattern(pattern):
     p = os.getcwd()
-    print 'current path:', p, 'pattern', pattern
-    for dirpath, dirnames, filenames in os.walk(p):
-        for i in filenames:
-            res = re.search(pattern, i)
-            # print pattern, i
-            if res is None:
-                continue
-                # print 'found item:', pattern, i
-            return os.path.join(dirpath, i)
-    print "path not found", pattern
-    return None
+    return find_filename_with_pattern_in_folder(p, pattern)
 
 
 def find_callable_in_app_framework(filename):
