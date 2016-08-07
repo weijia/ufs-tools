@@ -6,13 +6,13 @@ from app_tools import get_executable_folder
 def find_filename_in_folder(root_path, filename):
     for dirpath, dirnames, filenames in os.walk(root_path):
         if filename in filenames:
-            # print 'find file:', os.path.join(dirpath, filename)
+            print 'find file:', os.path.join(dirpath, filename)
             return os.path.join(dirpath, filename)
     return None
 
 
 def find_filename_in_app_folder(filename):
-    find_filename_in_folder(get_executable_folder(), filename)
+    return find_filename_in_folder(get_executable_folder(), filename)
 
 
 def find_filename_with_pattern_in_folder(root_folder, pattern):
@@ -30,4 +30,4 @@ def find_filename_with_pattern_in_folder(root_folder, pattern):
 
 
 def find_file_with_pattern_in_app_folder(pattern):
-    find_filename_with_pattern_in_folder(get_executable_folder(), pattern)
+    return find_filename_with_pattern_in_folder(get_executable_folder(), pattern)
