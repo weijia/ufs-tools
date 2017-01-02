@@ -43,6 +43,7 @@ def ignore_exc_with_result(exception_result=None,
                     return exception_result
                 if callback:
                     callback(e)
+                return exception_result
 
         return wrap_with_exc
 
