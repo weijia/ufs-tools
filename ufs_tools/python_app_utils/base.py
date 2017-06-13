@@ -11,4 +11,9 @@ class AppBase(object):
 
     @ignore_exc
     def add_default_module_path(self, module_path="server_base_packages"):
+        """
+        add all sub folders of a folder (default:server_base_package) to path
+        :param module_path:
+        :return:
+        """
         include_all(get_executable(), module_path)
