@@ -6,5 +6,5 @@ __email__ = 'richardwangwang@gmail.com'
 __version__ = '0.5.15'
 
 from ufs_tools import *
-from filetools import *
-from package_info import *
+from .filetools import *
+from .package_info import *

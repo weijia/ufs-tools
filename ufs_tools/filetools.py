@@ -8,8 +8,8 @@ import logging
 import imp
 import sys
 
-from folder_tool import find_root, find_root_path
-from file_search import find_filename_in_folder, find_filename_with_pattern_in_folder
+from .folder_tool import find_root, find_root_path
+from .file_search import find_filename_in_folder, find_filename_with_pattern_in_folder
 
 
 def main_is_frozen():
@@ -151,7 +151,7 @@ def translate_local_string_to_unicode(original_str):
     Transform a string in local format to unicode. This may be changed in different
     system as different system has different default encoding
     """
-    if type(original_str) != unicode:
+    if not (sys.version_info > (3, 0)) and type(original_str) != unicode:
         return original_str.decode(g_local_string_encoding)
     return original_str
 
@@ -188,4 +188,6 @@ def format_path(original_dir):
         if len(new_dir) == 2:
             # C: or E:
             new_dir += u"/"
+    if (sys.version_info > (3, 0)):
+        return new_dir
     return unicode(new_dir)

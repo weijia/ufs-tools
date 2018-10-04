@@ -36,9 +36,9 @@ def ignore_exc_with_result(exception_result=None,
             try:
                 # print "executing!!!!!!!!!!!!!!!!"
                 return func(*args)
-            except exception, e:
+            except Exception as e:
                 if is_notification_needed:
-                    print "ignored the following exception:______________________________________________"
+                    print("ignored the following exception:______________________________________________")
                     traceback.print_exc()
                     return exception_result
                 if callback:

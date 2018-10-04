@@ -7,10 +7,10 @@ import logging
 
 from ufs_tools.app_tools import get_executable_folder
 
-from filetools import get_sibling_folder
-from inspect_utils import get_parent_frame_file
-from folder_tool import find_root_path, get_file_folder
-from basic_lib_tool import include, append, include_in_folder
+from .filetools import get_sibling_folder
+from .inspect_utils import get_parent_frame_file
+from .folder_tool import find_root_path, get_file_folder
+from .basic_lib_tool import include, append, include_in_folder
 
 
 log = logging.getLogger(__name__)

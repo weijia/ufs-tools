@@ -1,6 +1,6 @@
 import os
 import sys
-from filetools import format_path
+from .filetools import format_path
 
 
 def include_file_folder(file_path):

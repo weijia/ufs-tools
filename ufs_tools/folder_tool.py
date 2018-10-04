@@ -1,7 +1,7 @@
 import inspect
 import os
 import datetime
-from inspect_utils import get_parent_frame_file
+from .inspect_utils import get_parent_frame_file
 
 __author__ = 'weijia'
 
@@ -15,10 +15,10 @@ def find_root_path(file_path, root_folder_name):
         last_file_path = file_path
         file_path = os.path.dirname(file_path)
         if last_file_path == file_path:
-            print "find root path failed, last_file_path: %s, file_path: " \
+            print("find root path failed, last_file_path: %s, file_path: " \
                   "%s, folder_name: %s, root_folder_name: %s" % (
                       last_file_path,
-                      file_path, folder_name, root_folder_name)
+                      file_path, folder_name, root_folder_name))
             raise "No root path found"
     found_path = os.path.join(file_path, root_folder_name)
     # log.error("returning:"+found_path)
