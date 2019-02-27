@@ -16,17 +16,20 @@ def ignore_exc(func):
 def ignore_exc_with_result(exception_result=None,
                            exception=Exception,
                            is_notification_needed=False,
-                           callback=None):
+                           success_callback=None,
+                           exception_callback=None,
+                           ):
     """
     Usage:
     @ignore_exc_with_result()(func)
     def test(a):
         pass
-    :param callback:
-    :param is_notification_needed:
-    :param exception_result:
-    :param exception:
-    :return:
+    :param success_callback: called if execution is successful
+    :param exception_callback: called if exception occurred
+    :param is_notification_needed: whether to show the exception message
+    :param exception_result: if exception occurred, this will be returned
+    :param exception: a list of exception classes that will be captured
+    :return: will return a wrapper function for the decorator
     """
     # Ref: http://wklken.me/posts/2012/10/27/python-base-decorator.html
     def exc_wrapper(func):
@@ -35,14 +38,17 @@ def ignore_exc_with_result(exception_result=None,
             # noinspection PyBroadException
             try:
                 # print "executing!!!!!!!!!!!!!!!!"
-                return func(*args)
-            except Exception as e:
+                result = func(*args)
+                if success_callback:
+                    success_callback(result)
+                return result
+            except exception as e:
                 if is_notification_needed:
                     print("ignored the following exception:______________________________________________")
                     traceback.print_exc()
                     return exception_result
-                if callback:
-                    callback(e)
+                if exception_callback:
+                    exception_callback(e)
                 return exception_result
 
         return wrap_with_exc
