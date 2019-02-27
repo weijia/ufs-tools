@@ -188,29 +188,29 @@ def jsIdDecoding(s):
 if __name__ == '__main__':
     v = u"hello\rgoodmorning\thi,,"
     # print 'separating:', v
-    print split_with_chars(v, u"\r\t\n,")
+    print(split_with_chars(v, u"\r\t\n,"))
     v = u"go\\\\od:ba/d"
     s = SpecialEncoding([u":", u"/"], u"\\")
-    print v
-    print s.en(v)
-    print s.de(v)
+    print(v)
+    print(s.en(v))
+    print(s.de(v))
     v = u"D:/"
-    print '---------------------------------'
+    print('---------------------------------')
     s = SpecialEncoding([u":", u"/"], u"\\")
-    print v
-    print s.en(v)
-    print s.de(v)
-    print '--------------------------------'
-    print jsIdEncoding(u"local_filesystem://D:/")
-    print '--------------------------------'
-    print jsIdDecoding(u"ufsFs\\0//q19420-01/D\\0/")
+    print(v)
+    print(s.en(v))
+    print(s.de(v))
+    print('--------------------------------')
+    print(jsIdEncoding(u"local_filesystem://D:/"))
+    print('--------------------------------')
+    print(jsIdDecoding(u"ufsFs\\0//q19420-01/D\\0/"))
 
     # encoded_str = quote_unicode(u"中文")
     # res = unquote_unicode('system_rest/%3Ffull_path%3DE%3A%5C%E5%BF%AB%E7%9B%98')
     res = unquote_unicode('local_filesystem%3A//E%3A%5C%E5%BF%AB%E7%9B%98')
-    print type(res)
+    print(type(res))
     # print os.path.exists(res.split('=')[1])
-    print os.path.exists(res.split('//')[1])
+    print(os.path.exists(res.split('//')[1]))
 
 
 def class_name_to_low_case(name):
