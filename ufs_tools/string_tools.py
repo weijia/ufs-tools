@@ -1,8 +1,16 @@
 # -*- coding: utf8 -*-
 import os
-import urllib2
+try:
+    import urllib2
+except:
+    import urllib.parse as urllib2
 import sys
 import re
+
+try:
+    a = unicode("")
+except:
+    unicode = str
 
 
 # noinspection PyMethodMayBeStatic
