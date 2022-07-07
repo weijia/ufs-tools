@@ -60,8 +60,7 @@ def get_root_sub_folder(file_path, root_name, sub_folder):
 
 
 def ensure_dir(full_path):
-    if not os.path.exists(full_path):
-        os.makedirs(full_path)
+    os.makedirs(full_path, exist_ok=True)
 
 
 def get_parent_folder_for_folder(folder_path):
